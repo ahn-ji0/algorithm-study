@@ -31,6 +31,7 @@ def get_prime_number(min, max):
 
 def main():
     M, N = map(int, input().split())
+    
     primes = get_prime_number(M,N)
 
     for prime in primes:

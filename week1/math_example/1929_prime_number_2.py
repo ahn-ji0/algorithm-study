@@ -27,6 +27,7 @@ def eratos(max):
 
 def main():
     M, N = map(int, input().split())
+    
     eratos_list = eratos(N)
     cnt = 0
     for idx in range(M,N+1):

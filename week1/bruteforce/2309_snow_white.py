@@ -14,7 +14,7 @@
 '''출력
 일곱 난쟁이의 키를 오름차순으로 출력한다. 일곱 난쟁이를 찾을 수 없는 경우는 없다.'''
 
-def determine(heights):
+def determine1(heights):
     break_loop = False
     for i in range(len(heights)-1):
         tmp1 = heights[i]
@@ -32,10 +32,11 @@ def determine(heights):
 
 def main():
     heights = []
+    
     for _ in range(9):
         heights.append(int(input()))
     
-    heights = determine(heights)
+    heights = determine1(heights)
     heights.sort()
     for h in heights:
         print(h)

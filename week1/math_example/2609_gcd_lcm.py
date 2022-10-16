@@ -25,6 +25,7 @@ def LCM(a, b):
 
 def main():
     a,b = map(int, input().split())
+    
     print(GCD(a,b))
     print(LCM(a,b))
 

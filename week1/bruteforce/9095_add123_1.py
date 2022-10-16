@@ -46,6 +46,7 @@ def cases(num):
 
 def main():
     T = int(input())
+    
     for i in range(T):
         num = int(input())
         cases(num)
