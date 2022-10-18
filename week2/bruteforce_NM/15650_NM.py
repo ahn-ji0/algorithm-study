@@ -6,9 +6,7 @@ s = []
 def dfs(N,M,start):
     
     if len(s) == M:
-        for num in s:
-            print(num,end = " ")
-        print()
+        print(' '.join(s))
         return
     
     
