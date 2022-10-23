@@ -1,5 +1,5 @@
 # 10972 https://www.acmicpc.net/problem/10972
-# 런타임 에러
+# 성공 ! 
 
 def main():
     
@@ -11,21 +11,20 @@ def main():
     stop = False
     
     while not stop:    
-    
+        
         if len(arr) == 1:
             break
         
-        if arr[-1] > arr[-2]:
-            left.append(arr.pop())
-            val = arr.pop()
-            left.append(val)
-            arr.append(val + 1)
-            left.remove(val+1)
-            left.sort()
+        left.append(arr.pop())
+        
+        if left[-1] > arr[-1]:
+            for i in range(len(left)):
+                if left[i] > arr[-1]:
+                   left[i],arr[-1] = arr[-1], left[i]
+                   break
             arr = arr + left
             stop = True
-        else:
-            left.append(arr.pop())
+
     
     if stop == False:
         print('-1')
