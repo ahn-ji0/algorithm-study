@@ -1,5 +1,5 @@
 # 14889 스타트와 링크 https://www.acmicpc.net/problem/14889
-# permutation 사용
+# combination 사용
 
 import itertools
 
