@@ -31,7 +31,7 @@ def bfs(maps):
             visited[x_tmp][y_tmp] = visited[x][y]+1
 
             if x_tmp==n-1 and y_tmp==m-1:
-                visited[x_tmp][y_tmp] = visited[x][y]+1
+                break
             
             queue.append([x_tmp,y_tmp])
 
