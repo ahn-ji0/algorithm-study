@@ -15,7 +15,7 @@ def solution(N, number):
     dp = [[N]]
     
     for num in range(1,8):
-        value = []
+        value = [int('{}'.format(N)*(num+1))]
         
         for i in range(1,num+1):
             j = num+1-i
@@ -23,9 +23,7 @@ def solution(N, number):
                 for b in dp[j-1]:
                     value.extend([a+b,a-b,a*b])
                     if(b!=0): value.append(a//b)
-                                 
-        value.append(int('{}'.format(N)*(i+1)))
-        
+                                         
         if number in value:
             return num + 1
         
