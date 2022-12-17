@@ -1,6 +1,5 @@
 #프로그래머스 배달 https://school.programmers.co.kr/learn/courses/30/lessons/12978
-# 다익스트라 알고리즘 
-
+# 다익스트라 알고리즘
 MAX_DISTANCE = 10001
 
 def find_min_distance(visited, distance):
@@ -16,17 +15,12 @@ def find_min_distance(visited, distance):
         
 def solution(N, road, K):
     graph = [[] for _ in range(N)]
-    graph = [dict() for _ in range(N)]
-    
     distance = [MAX_DISTANCE for _ in range(N)]
     visited = [0 for _ in range(N)]
     for edge in road:
         start, end, weight = edge
-        if graph[start-1].get(end-1)!= None:
-            graph[start-1][end-1] = weight if weight < graph[start-1][end-1] else graph[start-1][end-1]
-        else:
-            graph[start-1][end-1] = weight
-        graph[end-1][start-1] = graph[start-1][end-1]
+        graph[start-1].append((end-1,weight))
+        graph[end-1].append((start-1,weight))
     
     visited[0] = 1
     for neighbor in graph[0]:
