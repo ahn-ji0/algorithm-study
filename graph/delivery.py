@@ -15,16 +15,22 @@ def find_min_distance(visited, distance):
         
 def solution(N, road, K):
     graph = [[] for _ in range(N)]
+    graph = [dict() for _ in range(N)]
+    
     distance = [MAX_DISTANCE for _ in range(N)]
     visited = [0 for _ in range(N)]
     for edge in road:
         start, end, weight = edge
-        graph[start-1].append((end-1,weight))
-        graph[end-1].append((start-1,weight))
+        if graph[start-1].get(end-1)!= None:
+            graph[start-1][end-1] = weight if weight < graph[start-1][end-1] else graph[start-1][end-1]
+        else:
+            graph[start-1][end-1] = weight
+        
+        graph[end-1][start-1] = graph[start-1][end-1]
     
     visited[0] = 1
-    for neighbor in graph[0]:
-        end, weight = neighbor
+    for end in graph[0]:
+        weight = graph[0][end]
         distance[end] = weight
         
     for _ in range(N-1):
@@ -32,8 +38,8 @@ def solution(N, road, K):
         min_idx = find_min_distance(visited, distance)
         visited[min_idx] = 1
         # 이웃 distance 비교해서 update 해줘
-        for neighbor in graph[min_idx]:
-            end, weight = neighbor
+        for end in graph[min_idx]:
+            weight = graph[min_idx][end]
             if end!=0 and distance[min_idx] + weight < distance[end]:
                 distance[end] = distance[min_idx] + weight
                 
