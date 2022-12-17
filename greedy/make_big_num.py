@@ -6,7 +6,7 @@ def solution(number, k):
     
     while(k>0):
         i = 0
-        while number[i] >= number[i+1] : i+=1
+        while number[i] >= number[i+1] and i<=len(number)-2 : i+=1
         number = number[0:i]  + number[i+1:]
         k -= 1
 

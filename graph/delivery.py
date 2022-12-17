@@ -1,6 +1,6 @@
 #프로그래머스 배달 https://school.programmers.co.kr/learn/courses/30/lessons/12978
 # 다익스트라 알고리즘
-MAX_DISTANCE = 10001
+MAX_DISTANCE = 1e8
 
 def find_min_distance(visited, distance):
     min_distance = MAX_DISTANCE
