@@ -15,13 +15,7 @@ def solution(start, end):
         
         visited[x] = True
         
-        for i in range(3):
-            if i == 0:
-                tmp_x = x + 1
-            elif i == 1:
-                tmp_x = x - 1
-            elif i == 2:
-                tmp_x = 2 * x
+        for tmp_x in (x+1, x-1, 2*x):
             
             if tmp_x < 0 or tmp_x > 100000 or visited[tmp_x] == True:
                 continue
