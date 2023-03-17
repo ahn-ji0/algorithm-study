@@ -29,8 +29,7 @@ for i in range(L):
 snake = deque()
 snake.append((0,0))
 
-snake_grid = [[0 for i in range(N)] for j in range(N)]
-snake_grid[0][0] = 1
+grid[0][0] = 2
 
 count = 0
 rotate = time.popleft()
@@ -56,7 +55,7 @@ while(True):
     tmp_y = h_y + dy[dir_idx]
     
     # 벽에 무딪히는 경우 / 뱀의 몸에 부딪히는 경우
-    if tmp_x < 0 or tmp_x >= N or tmp_y <0 or tmp_y >=N or snake_grid[tmp_x][tmp_y] == 1:
+    if tmp_x < 0 or tmp_x >= N or tmp_y <0 or tmp_y >=N or grid[tmp_x][tmp_y] == 2:
         break
     
     # 이동
@@ -64,13 +63,13 @@ while(True):
     h_y = tmp_y
     
     snake.append((h_x, h_y))
-    snake_grid[h_x][h_y] = 1
     
-    if not grid[h_x][h_y]:
+    if grid[h_x][h_y] != 1:
         (t_x, t_y) = snake.popleft()
-        snake_grid[t_x][t_y] = 0
-    else:
-        grid[h_x][h_y] = 0
+        grid[t_x][t_y] = 0
+    
+    grid[h_x][h_y] = 2
+
     count += 1
 
 print(count + 1)
