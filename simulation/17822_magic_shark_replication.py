@@ -66,9 +66,9 @@ def max_shark_move(s, n, total, dir, visited):
         grid_sum = 0
         if not visited[tmp_s_x][tmp_s_y]:
             grid_sum = len(grid[tmp_s_x][tmp_s_y])
-        visited[tmp_s_x][tmp_s_y] = True
-        max_shark_move((tmp_s_x, tmp_s_y), n - 1, total + grid_sum, dir + [i], copy.deepcopy(visited))
-        visited[tmp_s_x][tmp_s_y] = False
+        visited[tmp_s_x][tmp_s_y] += 1
+        max_shark_move((tmp_s_x, tmp_s_y), n - 1, total + grid_sum, dir + [i], visited)
+        visited[tmp_s_x][tmp_s_y] -= 1
 
 
 for s in range(S):
@@ -79,7 +79,7 @@ for s in range(S):
     # print('fishmove', grid)
 
     shark_move = []
-    visited = [[False for i in range(N)] for j in range(N)]
+    visited = [[0 for i in range(N)] for j in range(N)]
     max_shark_move((s_x,s_y), 3, 0, [], visited)
     # print('sharkmove',shark_move)
 
