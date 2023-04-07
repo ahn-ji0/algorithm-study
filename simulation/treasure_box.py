@@ -12,7 +12,7 @@ for test_case in range(1, T + 1):
     each = int(N/4)
     start_idx = 0
     numbers = set()
-    for i in range(N):
+    for i in range(each):
         curr_idx = start_idx
         for j in range(4): #각변
             tmp_num = 0
